@@ -1,0 +1,10 @@
+{
+  "negras": [
+    {"texto": "El nuevo plan de gobierno se resume en ____.", "elegir": 1},
+    {"texto": "Primero fue ____ y después ____: así se escribe la historia patria.", "elegir": 2}
+  ],
+  "blancas": [
+    "Una consulta popular por WhatsApp.",
+    "Un diputado dormido en plena sesión."
+  ]
+}

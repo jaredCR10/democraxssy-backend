@@ -1,0 +1,11 @@
+# Para desarrollo y pruebas en las laptops (docker compose up --build).
+# El despliegue real es una OCI Container Instance que descarga la imagen de Docker Hub.
+services:
+  api:
+    build: .
+    image: jaredcr10/democraxssy-backend:latest
+    ports:
+      - "127.0.0.1:3000:3000"
+    restart: unless-stopped
+    mem_limit: 256m
+    cpus: 0.5
