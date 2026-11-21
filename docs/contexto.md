@@ -42,9 +42,10 @@ profesor pide mostrar y justificar cada decisión.
    │  ├─ frontend: HTTP → redirige a HTTPS; HTTPS sirve el sitio y /proxy │
    │  └─ API: HTTP (80) y HTTPS (443), sin redirección ──┐                │
    └─────────────────────────────────────────────────────┼────────────────┘
-                                                          │ http://10.0.0.50:3000  (IP privada, misma VCN)
+                                                          │ http://10.0.8.50:3000  (IP privada fija, misma subred)
                                                           ▼
                               ┌──────── OCI Container Instance ────────┐
+                              │ forma CI.Standard.A1.Flex (ARM)        │
                               │ contenedor: Python 3.13 + FastAPI      │
                               │ imagen: docker.io/jaredcr10/           │
                               │         democraxssy-backend:latest     │
@@ -52,7 +53,8 @@ profesor pide mostrar y justificar cada decisión.
                               └────────────────────────────────────────┘
 ```
 
-(La IP privada `10.0.0.50` es un ejemplo; se fija al crear la Container Instance.)
+Datos de la red: VCN `if600-vcn` (10.0.0.0/16), subred `subnet-publica` (10.0.8.0/24), VM del frontend
+`10.0.8.99` (pública 129.80.235.41), Container Instance `10.0.8.50`.
 
 ## 4. Decisiones y justificación
 
@@ -84,12 +86,15 @@ profesor pide mostrar y justificar cada decisión.
 | **Contenedores, no Terraform** | Terraform crea infraestructura (VMs, redes), no corre la aplicación; un `apply` en vivo tarda minutos y depende de la capacidad de OCI (ya nos falló la A1 por "Out of capacity") |
 | **OCI Container Instances con imagen de docker.io** | Es exactamente lo que se vio en el **lab de contenedores** (allí: `docker.io` / `bkimminich/juice-shop`, puerto TCP 3000). OCI corre el contenedor sin que administremos un servidor. Política de reinicio **Always** |
 | **Imagen pública en Docker Hub** (`jaredcr10/democraxssy-backend`) | Igual que en el lab; la imagen no contiene secretos |
-| **Forma CI.Standard.E4.Flex, 1 OCPU y memoria mínima** | El backend consume muy poco; procesador AMD x86, compatible con la imagen construida en nuestras laptops |
-| **Misma VCN que la VM del frontend, IP privada fija** | nginx llega al contenedor por la red interna; la IP fija evita reconfigurar nginx cada vez que se recrea la instancia. El puerto 3000 solo se permite desde la VCN, no desde Internet |
+| **Forma CI.Standard.A1.Flex (ARM), 1 OCPU y memoria mínima** | La E4 (x86) no tenía cupo en la cuenta (`standard-e4-core-count` excedido). La A1 es la forma más eficiente de OCI y el backend consume muy poco |
+| **Imagen multiarquitectura** (`linux/amd64` + `linux/arm64`, con `docker buildx`) | La A1 es ARM y nuestras laptops x86; OCI rechazó la primera imagen (solo x86) por arquitectura incompatible. Con las dos, cada máquina descarga la que le corresponde |
+| **Misma subred que la VM del frontend, IP privada fija (10.0.8.50)** | nginx llega al contenedor por la red interna; la IP fija evita reconfigurar nginx cada vez que se recrea la instancia. El Security List solo permite TCP/3000 desde `10.0.8.99/32` (la VM): ni Internet ni el resto de la red llegan al contenedor |
+| **IP pública en la Container Instance** | Necesaria para salir a Internet por el internet gateway y descargar la imagen de docker.io; no expone el puerto 3000 por la regla anterior |
 | **nginx de la VM delante del contenedor** | La Container Instance no trae HTTPS. Se reutiliza el nginx y certbot que ya funcionan en la VM: cero recursos nuevos |
-| **Subdominio propio para la API** (`api-democraxssy-anj.duckdns.org`) con certificado de Let's Encrypt | nginx distingue frontend y API por el nombre; el frontend no se toca |
+| **Subdominio propio para la API** (`api-democraxssy-anj.duckdns.org`) con certificado de Let's Encrypt | nginx distingue frontend y API por el nombre; el frontend no se toca. Configuración en `/etc/nginx/conf.d/democraxssy_api.conf` (con `_` para que cargue después de `democraxssy.conf` y no se vuelva el sitio por defecto del puerto 80) y `/etc/nginx/democraxssy-api-proxy.conf` |
 | **API por HTTP y HTTPS, sin redirección** | El enunciado pide soportar ambos. Redirigir HTTP→HTTPS impediría demostrar HTTP y rompe peticiones de la API (un POST redirigido pierde el cuerpo; CORS no acepta redirecciones en la verificación previa). El frontend sí sigue redirigiendo a HTTPS |
-| **Excepción en el firewall anti-SSRF** para la IP y puerto del contenedor | El firewall del frontend impide que nginx se conecte a direcciones internas; se permite solo esa IP y puerto |
+| **Excepción en el firewall anti-SSRF** para `10.0.8.50:3000` | La tabla nftables `democraxssy_ssrf` impide que nginx (uid 987) se conecte a direcciones internas (10.0.0.0/8, etc.); se permite solo esa IP y puerto, el resto sigue bloqueado |
+| **nginx sin límite de 4 KB para la API** | El límite lo aplica el backend, que responde 413 en JSON como pide la API; si lo cortara nginx respondería con una página HTML |
 | **Docker Compose solo para desarrollo** | Cada uno corre el backend igual en su laptop (`docker compose up --build`) antes de publicarlo |
 | **Contenedor sin root, con límites y *healthcheck*** | Seguridad (el proyecto es sobre XSS) y control de recursos |
 
@@ -104,8 +109,9 @@ profesor pide mostrar y justificar cada decisión.
 
 1. Programar en la rama propia y probar en local (`uvicorn … --reload`, `pytest`, `docker compose up --build`).
 2. Pull request a `main`, revisado por otra persona (en la defensa todos deben poder explicar todo).
-3. Publicar: `docker build` + `docker push` a Docker Hub.
-4. Reiniciar la Container Instance para que descargue la imagen nueva.
+3. Publicar la imagen para las dos arquitecturas (nunca con `docker build` + `docker push` solos):
+   `docker buildx build --platform linux/amd64,linux/arm64 -t jaredcr10/democraxssy-backend:latest --push .`
+4. Reiniciar la Container Instance para que descargue la imagen nueva (si quedó en *Failed*, eliminarla y crearla de nuevo).
 
 ## 6. La defensa (plan)
 
@@ -117,7 +123,10 @@ profesor pide mostrar y justificar cada decisión.
 5. Mostrar validaciones: errores 409/413/401/403/404 y una prueba de XSS con un nombre como `<svg onload=alert(1)>`.
 6. Mostrar el consumo de recursos (forma mínima, memoria del contenedor).
 
-## 7. Pendiente de confirmar con el profesor
+## 7. Consultas al profesor
 
-- Que Container Instances + nginx en la VM del frontend le parezca bien.
-- Que las partidas puedan vivir solo en memoria.
+| Consulta | Estado |
+|---|---|
+| El backend debe soportar HTTP **y** HTTPS | **Confirmado** (no basta solo HTTP) |
+| Usar el nginx de la VM del frontend como proxy inverso del backend | **Confirmado** (20 nov 2026) |
+| Que las partidas vivan solo en memoria | Pendiente |

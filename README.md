@@ -38,11 +38,19 @@ curl.exe -I http://localhost:3000/api/salud
 
 ## Publicar la imagen (la usa la OCI Container Instance)
 
+La Container Instance usa la forma A1 (ARM), así que la imagen se publica para las dos arquitecturas:
+
 ```
-docker login
-docker build -t jaredcr10/democraxssy-backend:latest .
-docker push jaredcr10/democraxssy-backend:latest
+docker login -u jaredcr10
+docker buildx build --platform linux/amd64,linux/arm64 -t jaredcr10/democraxssy-backend:latest --push .
+docker buildx imagetools inspect jaredcr10/democraxssy-backend:latest   # debe listar amd64 y arm64
 ```
 
 Después se reinicia la Container Instance para que descargue la imagen nueva
 (las partidas en curso se pierden).
+
+## Direcciones
+
+- HTTPS: https://api-democraxssy-anj.duckdns.org
+- HTTP:  http://api-democraxssy-anj.duckdns.org
+- Salud: `curl.exe -I https://api-democraxssy-anj.duckdns.org/api/salud` → 200
