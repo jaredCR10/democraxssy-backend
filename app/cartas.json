@@ -1,10 +1,448 @@
 {
-  "negras": [
-    {"texto": "El nuevo plan de gobierno se resume en ____.", "elegir": 1},
-    {"texto": "Primero fue ____ y después ____: así se escribe la historia patria.", "elegir": 2}
-  ],
-  "blancas": [
-    "Una consulta popular por WhatsApp.",
-    "Un diputado dormido en plena sesión."
-  ]
+ "negras": [
+  {
+   "texto": "La nueva ley de transparencia prohíbe ____.",
+   "elegir": 1
+  },
+  {
+   "texto": "El candidato prometió acabar con ____ en sus primeros cien días.",
+   "elegir": 1
+  },
+  {
+   "texto": "Según la última encuesta, a la gente le preocupa más ____ que la economía.",
+   "elegir": 1
+  },
+  {
+   "texto": "En el debate presidencial, la única propuesta concreta fue ____.",
+   "elegir": 1
+  },
+  {
+   "texto": "Tras seis años de trabajo, la comisión especial concluyó que la culpa es de ____.",
+   "elegir": 1
+  },
+  {
+   "texto": "El nuevo Ministerio de ____ ya tiene más asesores que funcionarios.",
+   "elegir": 1
+  },
+  {
+   "texto": "Para modernizar el Estado, el gobierno apostó todo a ____.",
+   "elegir": 1
+  },
+  {
+   "texto": "La oposición convocó a una marcha contra ____.",
+   "elegir": 1
+  },
+  {
+   "texto": "En la sesión de hoy, la Asamblea aprobó por unanimidad ____.",
+   "elegir": 1
+  },
+  {
+   "texto": "La auditoría encontró ____ en la caja chica.",
+   "elegir": 1
+  },
+  {
+   "texto": "El jingle de la campaña dice: «¡Vota por mí y tendrás ____!»",
+   "elegir": 1
+  },
+  {
+   "texto": "Lo que de verdad se discutió en la reunión a puerta cerrada: ____.",
+   "elegir": 1
+  },
+  {
+   "texto": "La filtración de datos del ministerio reveló ____.",
+   "elegir": 1
+  },
+  {
+   "texto": "El plan de seguridad nacional consiste, básicamente, en ____.",
+   "elegir": 1
+  },
+  {
+   "texto": "Nadie entiende por qué el presupuesto nacional incluye ____.",
+   "elegir": 1
+  },
+  {
+   "texto": "El soberano anunció en cadena nacional que desde mañana será obligatorio ____.",
+   "elegir": 1
+  },
+  {
+   "texto": "El nuevo sistema de voto electrónico fue hackeado con ____.",
+   "elegir": 1
+  },
+  {
+   "texto": "El diputado justificó su ausencia alegando ____.",
+   "elegir": 1
+  },
+  {
+   "texto": "En lugar de rendir cuentas, el ministro presentó ____.",
+   "elegir": 1
+  },
+  {
+   "texto": "La reforma educativa reemplazará la clase de cívica por ____.",
+   "elegir": 1
+  },
+  {
+   "texto": "El escándalo de corrupción comenzó con ____.",
+   "elegir": 1
+  },
+  {
+   "texto": "Para combatir la inflación, el banco central recomienda ____.",
+   "elegir": 1
+  },
+  {
+   "texto": "El candidato independiente no tenía partido, pero sí tenía ____.",
+   "elegir": 1
+  },
+  {
+   "texto": "Los miembros de mesa se quedaron dormidos por culpa de ____.",
+   "elegir": 1
+  },
+  {
+   "texto": "El sitio web oficial pasó caído toda la semana por ____.",
+   "elegir": 1
+  },
+  {
+   "texto": "____: el verdadero poder detrás del trono.",
+   "elegir": 1
+  },
+  {
+   "texto": "Mi abuela dice que en sus tiempos la democracia se defendía con ____.",
+   "elegir": 1
+  },
+  {
+   "texto": "Último mensaje en el chat de vecinos: ____.",
+   "elegir": 1
+  },
+  {
+   "texto": "El fiscal declaró que ____ no es delito si se hace con buena intención.",
+   "elegir": 1
+  },
+  {
+   "texto": "La aplicación oficial del gobierno pide permiso para acceder a ____.",
+   "elegir": 1
+  },
+  {
+   "texto": "La consulta popular se canceló porque ____ ganaba en todas las encuestas.",
+   "elegir": 1
+  },
+  {
+   "texto": "El nuevo eslogan del gobierno: «Menos burocracia, más ____».",
+   "elegir": 1
+  },
+  {
+   "texto": "La primera medida del soberano fue declarar patrimonio nacional ____.",
+   "elegir": 1
+  },
+  {
+   "texto": "El informe de labores de este año dedica cien páginas a ____.",
+   "elegir": 1
+  },
+  {
+   "texto": "Para ser candidato solo hace falta cédula, ganas y ____.",
+   "elegir": 1
+  },
+  {
+   "texto": "El partido de ____ propone resolver la crisis con ____.",
+   "elegir": 2
+  },
+  {
+   "texto": "Primero ____, después ____: así se gobierna en este país.",
+   "elegir": 2
+  },
+  {
+   "texto": "Vendí mi voto por ____ y ahora tengo ____.",
+   "elegir": 2
+  },
+  {
+   "texto": "La campaña se financió con ____ y terminó en ____.",
+   "elegir": 2
+  },
+  {
+   "texto": "____ + ____ = mayoría absoluta.",
+   "elegir": 2
+  },
+  {
+   "texto": "El nuevo tratado internacional cambia ____ por ____.",
+   "elegir": 2
+  },
+  {
+   "texto": "En la conferencia de prensa semanal: «No es ____, es ____».",
+   "elegir": 2
+  },
+  {
+   "texto": "La nueva Constitución garantiza el derecho a ____ y la obligación de soportar ____.",
+   "elegir": 2
+  },
+  {
+   "texto": "El soberano escuchó al pueblo, que pedía ____, y le dio ____.",
+   "elegir": 2
+  }
+ ],
+ "blancas": [
+  "Un comunicado de prensa sin sujeto ni verbo.",
+  "Una fila de tres horas para pedir una cita.",
+  "El formulario en papel para solicitar el formulario digital.",
+  "Un asesor del asesor del viceministro.",
+  "Una rotonda sin salida.",
+  "Un hueco en la calle con nombre propio.",
+  "Una comisión para estudiar la creación de otra comisión.",
+  "La cuarta primera piedra del mismo hospital.",
+  "Un decreto escrito en Comic Sans.",
+  "Un tuit borrado a las tres de la mañana.",
+  "Las promesas de campaña recicladas desde 1998.",
+  "Un viaje oficial con escala en la playa.",
+  "Una cadena de WhatsApp de la tía.",
+  "Un meme como política pública.",
+  "Un sello que dice «Recibido» y nada más.",
+  "La fotocopia de la fotocopia de la cédula.",
+  "El servidor del ministerio que corre en una laptop vieja.",
+  "El wifi gratis de la municipalidad.",
+  "Una contraseña escrita en un pósit pegado al monitor.",
+  "Un correo de un príncipe que promete financiar la campaña.",
+  "Un <script> escondido en el nombre de usuario.",
+  "<script>alert('fraude')</script>.",
+  "Una inyección SQL en el padrón electoral.",
+  "Un ataque de denegación de servicio a la paciencia ciudadana.",
+  "El botón de «Aceptar cookies» del Estado.",
+  "Una actualización de Windows en plena votación.",
+  "El practicante que tiene la contraseña de root.",
+  "Un firewall configurado para dejar pasar todo.",
+  "Un certificado de seguridad vencido desde el gobierno pasado.",
+  "Un captcha imposible para poder votar.",
+  "Una encuesta hecha a los primos del candidato.",
+  "Un debate entre dos atriles vacíos.",
+  "Los votos de los difuntos que siguen en el padrón.",
+  "Un fraude tan elaborado que nadie lo entendió.",
+  "Una papeleta del tamaño de una sábana.",
+  "La urna que apareció en un cafetal.",
+  "Un conteo de votos con calculadora de juguete.",
+  "El abstencionismo, que ganó otra vez.",
+  "Un candidato que nadie conoce, ni su propia familia.",
+  "Una alianza entre partidos que se odian.",
+  "Un partido político con más fundadores que votantes.",
+  "Un mitin con tamal y refresco incluidos.",
+  "Una camiseta del partido que destiñe en la primera lavada.",
+  "Una bandera patriótica hecha en el extranjero.",
+  "Un jingle electoral pegajoso y sin contenido.",
+  "Una gorra a cambio del voto.",
+  "Un bono que llega justo antes de las elecciones.",
+  "Una presa eterna en la autopista.",
+  "El tren que siempre está por llegar.",
+  "Una carretera inaugurada sin asfalto.",
+  "Un puente que no conecta nada con nada.",
+  "Una obra de cinco años que va por el 3 %.",
+  "Una platina que se reparó once veces.",
+  "Un bache que ya tiene página de fans.",
+  "Un aguinaldo que se esfumó.",
+  "El impuesto a respirar.",
+  "Un recorte en el presupuesto de recortes.",
+  "La deuda pública con intereses del 300 %.",
+  "Una calculadora que siempre da superávit.",
+  "Un fideicomiso que nadie sabe dónde está.",
+  "Una caja chica muy, muy grande.",
+  "Un sobre manila lleno de buenas intenciones.",
+  "Una donación anónima de una empresa con el apellido del ministro.",
+  "Un contrato adjudicado al único oferente.",
+  "Una licitación con un solo participante y tres ganadores.",
+  "Un pariente contratado por mérito propio.",
+  "El sobrino del alcalde como jefe de informática.",
+  "Una oficina con aire acondicionado y nadie adentro.",
+  "Un funcionario en vacaciones perpetuas.",
+  "Una incapacidad de seis meses por un uñero.",
+  "Una sesión que se suspendió por falta de galletas.",
+  "Un receso para almorzar que duró hasta el viernes.",
+  "Un discurso de cuatro horas sin decir nada.",
+  "Un minuto de silencio por la ética.",
+  "La lectura del acta anterior, otra vez.",
+  "Una moción de orden para discutir el orden de las mociones.",
+  "Un veto presidencial por puro capricho.",
+  "Una ley con un nombre más largo que su contenido.",
+  "Una reforma que reforma la reforma.",
+  "Un reglamento que contradice la ley.",
+  "Un expediente perdido en el archivo.",
+  "Una fotocopiadora que solo funciona los martes.",
+  "El clip que sostiene a toda la institución.",
+  "Una firma digital que solo funciona en Internet Explorer.",
+  "La página web del gobierno hecha en 2003.",
+  "Un PDF escaneado al revés.",
+  "Una aplicación oficial con una estrella en la tienda.",
+  "Un chatbot oficial que solo responde «Estamos trabajando en ello».",
+  "Una inteligencia artificial que se postuló a diputada.",
+  "Un algoritmo que decide quién recibe el bono.",
+  "Una base de datos de ciudadanos expuesta en internet.",
+  "Un hacker adolescente con más acceso que el ministro.",
+  "El ransomware que secuestró las actas.",
+  "Un rescate pagado en criptomonedas.",
+  "La nube, que en realidad es la computadora de alguien.",
+  "Una cuenta oficial en redes sociales sin seguidores.",
+  "Un influencer contratado como vocero.",
+  "Mil bots que aplauden cada publicación del soberano.",
+  "Una granja de trolls con horario de oficina.",
+  "Un video viral sacado de contexto.",
+  "Una noticia falsa compartida por un ministro.",
+  "Una verificación de datos que nadie leyó.",
+  "Un titular en mayúsculas y con tres signos de exclamación.",
+  "La sección de comentarios de cualquier noticia.",
+  "Una discusión en el grupo familiar que terminó en bloqueo.",
+  "El vecino que sabe de todo y no hace nada.",
+  "Una asamblea de condominio con más drama que el Congreso.",
+  "Una reunión que pudo haber sido un correo.",
+  "Un correo con copia a toda la institución.",
+  "El «responder a todos» más caro de la historia.",
+  "Una presentación de doscientas diapositivas.",
+  "Un plan quinquenal escrito en una servilleta.",
+  "Una consultoría que copió y pegó de Wikipedia.",
+  "Un diagnóstico de 900 páginas que concluye «hay que mejorar».",
+  "La palabra «sinergia» repetida cuarenta veces.",
+  "Un indicador de gestión en verde que debería estar en rojo.",
+  "Un récord mundial de juramentaciones.",
+  "Una banda presidencial prestada.",
+  "Un trono de plástico comprado en oferta.",
+  "Una corona de cartón con olor a poder.",
+  "El poder absoluto, pero solo los fines de semana.",
+  "Un golpe de Estado organizado por formulario en línea.",
+  "Una revolución que se canceló por lluvia.",
+  "Una protesta con más vendedores que manifestantes.",
+  "Un bloqueo de calles por la final del fútbol.",
+  "Una huelga para exigir más días de huelga.",
+  "Un sindicato de soberanos destronados.",
+  "La división de poderes, pero dividida entre primos.",
+  "Un pueblo que vota y un soberano que no escucha.",
+  "La voluntad popular guardada en una gaveta.",
+  "Una democracia en modo avión.",
+  "Un contrato social con letra pequeña.",
+  "La Constitución usada como posavasos.",
+  "Un referéndum para decidir si se hacen referéndums.",
+  "Una consulta popular con las respuestas ya marcadas.",
+  "Un voto nulo con un dibujo muy detallado.",
+  "El voto en blanco, que nadie cuenta.",
+  "Un dedo manchado de tinta que no se quita en un mes.",
+  "Un miembro de mesa que se fue a almorzar con la urna.",
+  "Un acarreo de votantes en buseta.",
+  "Un transporte gratis al centro de votación, de ida y sin vuelta.",
+  "Una encuesta que da por ganador a quien la pagó.",
+  "Un empate técnico entre nadie y ninguno.",
+  "Una segunda ronda entre los dos menos malos.",
+  "El mal menor, otra vez.",
+  "La continuidad del cambio.",
+  "Un cambio que cambia todo para que nada cambie.",
+  "Un discurso de unidad nacional desde un yate.",
+  "Un yate presidencial «para emergencias».",
+  "Un helicóptero para ir a la esquina.",
+  "Una caravana de diez carros para inaugurar un baño.",
+  "Una placa que conmemora la inauguración de otra placa.",
+  "Un monumento al contribuyente desconocido.",
+  "Una estatua del soberano en cada rotonda.",
+  "Un feriado nacional por el cumpleaños del soberano.",
+  "Un desfile en honor a la burocracia.",
+  "Un carné del partido que da descuento en la soda.",
+  "Un gallo pinto con presupuesto de banquete.",
+  "Una pizza para cerrar el trato.",
+  "Unos tamales navideños como prueba de lealtad.",
+  "Una olla de carne pagada con fondos públicos.",
+  "La soda frente al Congreso, donde se aprueban las leyes de verdad.",
+  "Una rifa para pagar la deuda externa.",
+  "La lotería como plan económico.",
+  "Un bingo para financiar el hospital.",
+  "Una colecta para pagarles el sueldo a los diputados.",
+  "Una cuenta bancaria en un paraíso fiscal.",
+  "Un paraíso fiscal que en realidad es un apartamento en la playa.",
+  "Una empresa de cartón con capital millonario.",
+  "Un testaferro con excelente memoria.",
+  "Una amnesia selectiva frente a la comisión investigadora.",
+  "Un «no recuerdo» repetido cien veces.",
+  "Una investigación archivada por falta de interés.",
+  "Un juicio que prescribió esperando su turno.",
+  "Una condena cumplida desde la casa de playa.",
+  "La inmunidad parlamentaria como superpoder.",
+  "Un fuero especial para los amigos.",
+  "Un indulto envuelto para regalo.",
+  "La ética, en peligro de extinción.",
+  "Un código de ética que nadie ha leído.",
+  "La transparencia de un vidrio polarizado.",
+  "Una rendición de cuentas en cómodas cuotas.",
+  "Un informe de labores lleno de fotos.",
+  "Una selfie con los damnificados.",
+  "Una gira por la zona afectada, en helicóptero y con maquillaje.",
+  "Una promesa escrita con tinta invisible.",
+  "Un «vamos a analizarlo».",
+  "Un «eso no me corresponde».",
+  "Un «venga mañana».",
+  "Un «el sistema está caído».",
+  "Un «le falta un requisito».",
+  "Un «eso es culpa de la prensa».",
+  "Un «yo no sabía nada».",
+  "Un «me sacaron de contexto».",
+  "Un «pregúntele al de la ventanilla tres».",
+  "Un «nosotros lo llamamos».",
+  "La ventanilla tres, que nunca abre.",
+  "Un número de turno que nunca aparece en la pantalla.",
+  "Un trámite que exige ir en persona a la página web.",
+  "Una cita médica para dentro de cuatro años.",
+  "Un expediente clínico escrito en papel periódico.",
+  "La lista de espera, que ya tiene su propia lista de espera.",
+  "Un hospital que solo existe en maqueta.",
+  "Una escuela con techo de esperanza.",
+  "Un pupitre compartido por tres estudiantes.",
+  "Un examen nacional con las respuestas filtradas.",
+  "Una beca que llegó cuando el estudiante ya se había graduado.",
+  "Una computadora por estudiante, pero sin electricidad.",
+  "Un plan de conectividad nacional con un solo router.",
+  "La cobertura 5G en la oficina del ministro y en ningún otro lado.",
+  "Un satélite nacional que resultó ser un globo.",
+  "Una agencia espacial con presupuesto de soda.",
+  "Un Ministerio del Futuro con muebles del pasado.",
+  "Un Ministerio de la Felicidad lleno de gente triste.",
+  "Un viceministerio de asuntos varios.",
+  "Una oficina de atención al ciudadano sin ciudadanos ni atención.",
+  "Una auditoría que auditó al auditor.",
+  "Un tribunal que perdió la balanza.",
+  "Un juez que dicta sentencia por mensaje de voz.",
+  "Un pueblo cansado de que le digan «pueblo».",
+  "La clase media, desaparecida en combate.",
+  "El salario mínimo, mínimo.",
+  "Un alquiler que cuesta más que el salario.",
+  "Un préstamo para pagar el préstamo.",
+  "Una tarjeta de crédito como fondo de emergencia nacional.",
+  "La canasta básica sin canasta.",
+  "El precio del aguacate.",
+  "Una hora de luz al día.",
+  "Un racionamiento de agua en plena temporada de lluvias.",
+  "Un río que cambiaron de lugar por una urbanización.",
+  "Un parque nacional convertido en parqueo.",
+  "Un árbol talado para poner un rótulo que dice «Cuidemos los árboles».",
+  "Un estudio de impacto ambiental hecho desde la playa.",
+  "La carbononeutralidad en un carro de doce cilindros.",
+  "Un perezoso como jefe de despacho.",
+  "Un mapache con credencial de prensa.",
+  "Un zopilote sobrevolando el presupuesto.",
+  "Una iguana en la sala de servidores.",
+  "El gato del soberano con carné de asesor.",
+  "Un loro que repite el discurso oficial.",
+  "La gallina de los huevos de oro, ya sin plumas.",
+  "Un perro guardián que solo le ladra a la oposición.",
+  "La oposición, haciéndole oposición a la oposición.",
+  "Un pacto de caballeros firmado por nadie que lo sea.",
+  "Un apretón de manos con los dedos cruzados.",
+  "Una sonrisa de campaña que caduca el día de la elección.",
+  "Un abrazo a un bebé que no quería abrazos.",
+  "Una dieta estricta de promesas incumplidas.",
+  "Un gimnasio público sin máquinas pero con inauguración.",
+  "La selección nacional como cortina de humo.",
+  "Un partido de fútbol justo el día que se aprueba el impuesto.",
+  "Una telenovela en horario de cadena nacional.",
+  "Un «sí, pero no».",
+  "Un tapón de oídos para escuchar al pueblo.",
+  "Un buzón de sugerencias conectado directo a la basura.",
+  "Una línea gratuita de denuncias que siempre da ocupado.",
+  "Un ministro que renunció por mensaje de texto.",
+  "Una renuncia irrevocable que duró dos días.",
+  "Un gabinete que cambia más rápido que la moda.",
+  "Un nombramiento interino de quince años.",
+  "El café sin azúcar de la austeridad.",
+  "Una austeridad con chofer y guardaespaldas.",
+  "Un plan de austeridad presentado en hotel cinco estrellas.",
+  "Unas vacaciones de trabajo en el Caribe.",
+  "Un pasaporte diplomático para la suegra.",
+  "Un decreto de emergencia para comprar sillas ergonómicas."
+ ]
 }

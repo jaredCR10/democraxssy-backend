@@ -29,6 +29,12 @@ def _cartas() -> tuple[tuple[dict, ...], tuple[str, ...]]:
     datos = json.loads(RUTA_CARTAS.read_text(encoding="utf-8"))
     negras = tuple({"texto": n["texto"], "elegir": int(n["elegir"])} for n in datos["negras"])
     blancas = tuple(str(b) for b in datos["blancas"])
+    # Si una carta está mal escrita, que falle al arrancar y no en medio de una partida.
+    for n in negras:
+        if n["elegir"] not in (1, 2) or n["texto"].count("____") != n["elegir"]:
+            raise ValueError(f"Carta negra mal formada en cartas.json: {n['texto']!r}")
+    if len(set(blancas)) != len(blancas) or any(not b.strip() for b in blancas):
+        raise ValueError("cartas.json tiene cartas blancas repetidas o vacías.")
     return negras, blancas
 
 

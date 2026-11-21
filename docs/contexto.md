@@ -70,7 +70,7 @@ Datos de la red: VCN `if600-vcn` (10.0.0.0/16), subred `subnet-publica` (10.0.8.
 
 | Decisión | Por qué |
 |---|---|
-| **Partidas en memoria** (sin base de datos) | Las partidas duran minutos y se eliminan al terminar; no hay cuentas ni datos que deban sobrevivir. Una base de datos sumaría otro servicio, memoria y fallos posibles sin que el enunciado lo pida: uso racional de recursos |
+| **Partidas en memoria** (sin base de datos) — aprobado por el profesor | Las partidas duran minutos y se eliminan al terminar; no hay cuentas ni datos que deban sobrevivir. Una base de datos sumaría otro servicio, memoria y fallos posibles sin que el enunciado lo pida: uso racional de recursos |
 | **Un solo proceso (1 worker de Uvicorn, 1 contenedor)** | Cada proceso tiene su propia memoria; con varios, dos jugadores podrían caer en procesos distintos y no verían la misma partida. Uno alcanza de sobra: 22 jugadores consultando cada 2 s son ~11 peticiones por segundo |
 | **Límite de partidas y limpieza de abandonadas** | Que la memoria no crezca sin control |
 | **Lock por partida** | Que dos jugadores actuando a la vez no dejen la partida inconsistente |
@@ -129,4 +129,4 @@ Datos de la red: VCN `if600-vcn` (10.0.0.0/16), subred `subnet-publica` (10.0.8.
 |---|---|
 | El backend debe soportar HTTP **y** HTTPS | **Confirmado** (no basta solo HTTP) |
 | Usar el nginx de la VM del frontend como proxy inverso del backend | **Confirmado** (20 nov 2026) |
-| Que las partidas vivan solo en memoria | Pendiente |
+| Que las partidas vivan solo en memoria | **Confirmado** (20 nov 2026): el estado de cada partida en curso se mantiene mientras el backend corre; no hace falta guardar partidas en una base de datos. Si el backend se apaga, se crea una partida nueva |

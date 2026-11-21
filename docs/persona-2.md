@@ -22,7 +22,7 @@ Instances, nginx, estado en memoria, plan de la defensa). Si usas una IA para pr
 | Persona | Archivos | Qué hace |
 |---|---|---|
 | 1 | `app/juego.py`, `app/mazo.py`, `app/cartas.json` | Reglas del juego, fases, vistas, mazo propio |
-| 2 | `app/main.py`, `app/validacion.py`, `app/almacen.py` | Rutas HTTP, validación de solicitudes, partidas en memoria, seguridad |
+| **2 (tú)** | `app/main.py`, `app/validacion.py`, `app/almacen.py` | Rutas HTTP, validación de solicitudes, partidas en memoria, seguridad |
 | 3 | `Dockerfile`, `docker-compose.yml`, OCI, nginx, pruebas de punta a punta | Despliegue y pruebas de integración |
 
 ## 2. Preparar el entorno
@@ -76,7 +76,8 @@ uvicorn app.main:app --port 3000 --reload
 - **Cuerpos:**
   - crear: `{"nombre": str, "puntos_para_ganar": int | null}` (puntos opcional; `null` o ausente = 5)
   - unirse: `{"nombre": str}`
-  - responder: `{"cartas": [int, ...]}` (1 o 2 enteros ≥ 0, sin repetir)
+  - responder: `{"cartas": [int, ...]}`. Tú revisas que sea una lista de enteros ≥ 0 sin booleanos (409);
+    la cantidad, las repetidas y que estén en la mano los revisa la lógica (400)
   - votar y decidir: `{"respuesta_id": "<12 hex>"}`
   - iniciar y avanzar: sin cuerpo o `{}`; **cualquier campo → 409**
 - **Token:** `Authorization: Bearer <64 hex en minúscula>`. Con la partida encontrada,
@@ -145,8 +146,17 @@ Probado jugando una partida completa contra su API. Ante cualquier duda, **prué
 | Eliminar sin ser anfitrión | 403 |
 | Eliminar siendo anfitrión en `terminada` | 204; después `GET` da 404 |
 | Ruta inexistente | 404 `"Ruta no encontrada."` |
+| `puntos_para_ganar` con `true`, `"5"` o `2.5` (tipo incorrecto) | 409 (lo valida la capa HTTP) |
+| `puntos_para_ganar` fuera de 1..20, o nombre vacío o de más de 24 | 400 (lo valida la lógica) |
+| `cartas` con un número negativo o un booleano (tipo incorrecto) | 409 (lo valida la capa HTTP) |
+| `cartas` vacía, con 3 elementos o repetida | **400**, no 409: la capa HTTP solo revisa que sea una lista de enteros ≥ 0; la cantidad y las repetidas las revisa la lógica |
+| `respuesta_id` que no son 12 hex (por ejemplo `"XYZ"`) | **404**, no 409: si es un texto, pásalo a la lógica, que responde 404 |
 
 Los textos de error no tienen que ser idénticos a los del profesor; el **código** sí.
+
+**Cuidado al comparar:** el servidor del profesor a veces pierde escrituras cuando recibe solicitudes
+muy seguidas (por ejemplo, de 5 uniones seguidas una no quedó guardada aunque respondió 201). Al probar
+contra él, deja unos 400 ms entre solicitudes y confirma el estado con `GET`.
 
 ## 8. Pruebas
 
